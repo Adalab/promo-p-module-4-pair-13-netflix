@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 
+
+
 // create and config server
 const server = express();
 server.use(cors());
@@ -36,13 +38,21 @@ server.get('/movies', (req, res) => {
   res.json(response)
 });
 
+server.get('/movie/:movieId', (req, res) => {
+  console.log(req.params.movieId);
+});
+
+const foundMovie = movieId.find();
+
+
+
 server.use(express.json());
 // En esta carpeta ponemos los ficheros estáticos
-const staticServer="./public";
+const staticServer = "./public";
 server.use(express.static(staticServer));
 
 // En esta carpeta guardamos imágenes
-const staticServerImage="./src/public-movies-images";
+const staticServerImage = "./src/public-movies-images";
 server.use(express.static(staticServerImage));
 
 
