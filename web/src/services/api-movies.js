@@ -3,6 +3,7 @@
 const getMoviesFromApi = () => {
   console.log('Se están pidiendo las películas de la app');
   // CAMBIA ESTE FETCH PARA QUE APUNTE A UN ENDPOINT DE TU SERVIDOR, PIENSA SI DEBE SER GET O POST, PIENSA QUÉ DATOS DEBES ENVIAR, ETC
+  // Aquí ponemos la dirección del servidor que vamos a crear
   return fetch('//localhost:4000/movies')
     .then(response => response.json())
     .then((data) => {
