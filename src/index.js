@@ -58,8 +58,11 @@ server.get('/movie/:movieId', (req, res) => {
   // Los dos console.log muestran exactamente lo mismo
   console.log(foundMovie);
   // Esta respuesta la he puesto para que el navegador no se quede pillado sin encontrar una respuesta que devolver
-  res.json(null);
+  //res.json(null);
+  res.render('movies', foundMovie);
 });
+
+
 
 
 server.use(express.json());
