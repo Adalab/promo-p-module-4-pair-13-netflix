@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const movies = require('./src/data/movies.json');
+// const movies = require('./src/data/movies.json');
 const Database = require('better-sqlite3');
 const db = new Database('./src/db/database.db', { verbose: console.log });
 
@@ -49,7 +49,7 @@ server.get('/movies', (req, res) => {
 server.get('/movie/:movieId', (req, res) => {
   // dentro del server.get hay que crear una constante para encontrar el id de las películas con req.params.movieId Este código es el del array de ExpressJs
   // const foundMovie = movies.find(movie => movie.id === req.params.movieId);
-  // Es el SELECT de la db con un FROM para sacar la tabla movies y un WHERE para la fila que en este caso es el id
+  // Es el SELECT de la db con un FROM para sacar la tabla movies y un WHERE para la fila que en este caso es el id (motor de plantillas)
   const query = db.prepare('SELECT * FROM movies WHERE id=?');
   // ejecutamos la query con los parámetros del movieId
   const foundMovie = query.get(req.params.movieId);
